@@ -39,22 +39,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Configurar Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true 
-
-      - name: Build do Projeto
-        run: npm run build # Certifique-se de que este comando cria o diretório 'public'
-
-      - name: Enviar artefato
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'public'  # Ajuste o caminho se necessário
-
-      - name: Deploy para GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+       - name: Checkout
+         uses: actions/checkout@v4
+       - name: Configurar Pages
+         uses: actions/configure-pages@v5
+         with:
+           enablement: true 
+       - name: Enviar artefato
+         uses: actions/upload-pages-artifact@v3
+         with:
+          path: '.'
+       - name: Deploy para GitHub Pages
+         id: deployment
+         uses: actions/deploy-pages@v4
