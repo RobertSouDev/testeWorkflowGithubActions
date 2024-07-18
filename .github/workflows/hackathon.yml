@@ -47,6 +47,9 @@ jobs:
         with:
           enablement: true 
 
+      - name: Build do Projeto
+        run: npm run build # Certifique-se de que este comando cria o diretório 'public'
+
       - name: Enviar artefato
         uses: actions/upload-pages-artifact@v3
         with:
@@ -55,5 +58,3 @@ jobs:
       - name: Deploy para GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
